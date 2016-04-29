@@ -1,2 +1,0 @@
-defmodule Sonar do
-end

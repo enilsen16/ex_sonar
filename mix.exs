@@ -14,7 +14,7 @@ defmodule Sonar.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :httpoison]]
   end
 
   # Dependencies can be Hex packages:
@@ -26,7 +26,8 @@ defmodule Sonar.Mixfile do
   #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
   #
   # Type "mix help deps" for more examples and options
-  defp deps do
-    []
+  def deps do
+    [ {:httpoison, "~> 0.8.0"},
+      {:exvcr, "~> 0.7", only: :test}]
   end
 end
