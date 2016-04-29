@@ -28,6 +28,7 @@ defmodule Sonar.Mixfile do
   # Type "mix help deps" for more examples and options
   def deps do
     [ {:httpoison, "~> 0.8.0"},
-      {:exvcr, "~> 0.7", only: :test}]
+      {:exvcr, "~> 0.7", only: :test},
+      {:poison, "~> 2.1"}]
   end
 end

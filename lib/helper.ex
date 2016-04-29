@@ -27,4 +27,8 @@ defmodule Helper do
         "https://sendsonar.com/api/v1/"
     end
   end
+
+  def decode(input) do
+    Poison.decode(input)
+  end
 end

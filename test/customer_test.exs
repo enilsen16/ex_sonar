@@ -17,9 +17,11 @@ defmodule CustomerTest do
   test "return a list of valid numbers" do
     use_cassette "valid_numbers" do
       response = Customer.avialable_numbers('910f62e3-dc80-40f4-a541-36770daedabc')
-      assert {:ok, body} = response
-      assert body.status_code == 200
-      assert body.body == "{\"available_number\":\"6188470781\"}"
+      assert {:ok, response_body} = response
+      assert response_body.status_code == 200
+      {:ok, body} = response_body.body
+      |> Helper.decode
+      assert body["available_number"] == "6188470781"
     end
   end
 end
