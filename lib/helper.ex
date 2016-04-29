@@ -18,4 +18,13 @@ defmodule Helper do
         "https://sendsonar.com/api/v1/messages"
     end
   end
+
+  def url do
+    case @env do
+      :staging ->
+        "https://sandbox.sendsonar.com/api/v1/"
+      :live ->
+        "https://sendsonar.com/api/v1/"
+    end
+  end
 end

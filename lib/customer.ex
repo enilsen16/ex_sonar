@@ -10,4 +10,9 @@ defmodule Customer do
       "&phone_number=#{phone_number}"
     HTTPoison.get(tokened_url)
   end
+
+  def avialable_numbers(token) do
+    url = Helper.url <> "phone_numbers/available"
+    HTTPoison.get(url, [{"X-Publishable-Key", token}], [])
+  end
 end
