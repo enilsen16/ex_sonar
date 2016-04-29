@@ -2,6 +2,8 @@
 
 A SendSonar Interface for Elixir
 
+Reference to documentation here -- http://docs.sendsonar.com/
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
@@ -27,3 +29,4 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 - [ ] Webhooks
 - [ ] Messages support
   - [ ] Facebook messenger
+- [ ] Add Documentation
