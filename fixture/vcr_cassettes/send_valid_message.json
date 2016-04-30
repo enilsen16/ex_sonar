@@ -1,0 +1,33 @@
+[
+  {
+    "request": {
+      "body": "{\"to\":\"5103437203\",\"text\":\"Testy\",\"media\":null}",
+      "headers": {
+        "X-Token": "U0pdMeJMbO1nwEuQ_0QcVH8uQjPjDIxk",
+        "Content-Type": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://sandbox.sendsonar.com/api/v1/messages"
+    },
+    "response": {
+      "body": "{\"to\":\"5103437203\",\"text\":\"Testy\",\"status\":\"unsubscribed\"}",
+      "headers": {
+        "Server": "Cowboy",
+        "Date": "Sat, 30 Apr 2016 02:40:55 GMT",
+        "Connection": "keep-alive",
+        "Content-Type": "application/json",
+        "Etag": "W/\"40d23c4e8b3a871fd9fe6b2019bdc2ad\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "1665f9be-d7fb-46e9-9395-99aa702c52fa",
+        "X-Runtime": "0.234011",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Content-Length": "58",
+        "Via": "1.1 vegur"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
