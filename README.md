@@ -27,6 +27,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 ## TODO
 
 - [ ] Webhooks
-- [ ] Messages support
+- [X] Messages support
   - [ ] Facebook messenger
 - [ ] Add Documentation
+- [ ] Handle Error Cases
