@@ -2,7 +2,7 @@
 
 A SendSonar Interface for Elixir
 
-Reference to documentation here -- http://docs.sendsonar.com/
+Sonar documentation here -- http://docs.sendsonar.com/
 
 ## Installation
 
