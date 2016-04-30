@@ -1,6 +1,8 @@
-# SendSonar
+# Sonar
 
-A SendSonar Interface for Elixir
+[![Build Status](https://travis-ci.org/enilsen16/ex_sonar.svg?branch=master)](https://travis-ci.org/enilsen16/ex_sonar)
+
+A Sonar Interface for Elixir
 
 Sonar documentation here -- http://docs.sendsonar.com/
 
