@@ -11,7 +11,7 @@ defmodule Customer do
     HTTPoison.get(tokened_url)
   end
 
-  def avialable_numbers(token) do
+  def available_numbers(token) do
     url = Helper.url <> "phone_numbers/available"
     HTTPoison.get(url, [{"X-Publishable-Key", token}], [])
   end
