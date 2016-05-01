@@ -2,11 +2,13 @@ defmodule Sonar.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :send_sonar_api,
+    [app: :ex_sonar,
      version: "0.0.1",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: description,
+     package: package,
      deps: deps]
   end
 
@@ -28,10 +30,23 @@ defmodule Sonar.Mixfile do
   # Type "mix help deps" for more examples and options
   def deps do
     [
-      {:exrm, "~> 1.0"},
       {:exvcr, "~> 0.7", only: :test},
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 2.1"}
     ]
+  end
+
+  defp description do
+    """
+    A Sonar API interface for Elixir
+    """
+  end
+
+  defp package do
+    [
+    name: :ex_sonar,
+    maintainers: ["Erik Nilsen"],
+    licenses: ["MIT"],
+    links: %{"GitHub" => "https://github.com/enilsen16/ex_sonar"}]
   end
 end
