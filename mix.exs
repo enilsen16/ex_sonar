@@ -32,7 +32,9 @@ defmodule Sonar.Mixfile do
     [
       {:exvcr, "~> 0.7", only: :test},
       {:httpoison, "~> 0.8.0"},
-      {:poison, "~> 2.1"}
+      {:poison, "~> 2.1"},
+      {:floki, "~> 0.8"},
+      {:mix_test_watch, github: "lpil/mix-test.watch", only: :dev}
     ]
   end
 
