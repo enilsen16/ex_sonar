@@ -1,53 +1,16 @@
-defmodule Helper do
-  @env if Mix.env != :prod, do: :staging, else: :live
-
-  def url(:customer) do
-    case @env do
-      :staging ->
-        "https://sandbox.sendsonar.com/api/v1/customers"
-      :live ->
-        "https://sendsonar.com/api/v1/customers"
-    end
-  end
-
-  def url(:messages) do
-    case @env do
-      :staging ->
-        "https://sandbox.sendsonar.com/api/v1/messages"
-      :live ->
-        "https://sendsonar.com/api/v1/messages"
-    end
-  end
-
-  def api_url do
-    case @env do
-      :staging ->
-        "https://sandbox.sendsonar.com/api/v1/"
-      :live ->
-        "https://sendsonar.com/api/v1/"
-    end
-  end
-
-  def url do
-    case @env do
-      :staging ->
-        "https://sandbox.sendsonar.com/"
-      :live ->
-        "https://www.sendsonar.com/"
-    end
-  end
-
-  def decode(input) do
-    Poison.decode(input)
-  end
+defmodule ExSonar.Helper.Internal do
+  alias ExSonar.Helper.Helper, as: Helper
+  @moduledoc """
+    Helper functions to access Sonar's Internal API
+  """
 
   def sign_in(email, password) do
-    sign_in_url = url <> "users/sign_in"
+    sign_in_url = Helper.url <> "users/sign_in"
     {:ok, response} = HTTPoison.get(sign_in_url)
     {{"Set-Cookie", cookie}, auth_token} = capture_tokens(response)
     data = sign_in_params(auth_token, email, password)
     headers =
-      [{"Cookie", cookie}, {"Referer", sign_in_url}, {"Origin", url},
+      [{"Cookie", cookie}, {"Referer", sign_in_url}, {"Origin", Helper.url},
       {"User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2724.0 Safari/537.36"},
       {"Upgrade-Insecure-Requests", 1}, {"Content-Type", "application/x-www-form-urlencoded"}]
 
@@ -55,10 +18,10 @@ defmodule Helper do
     {"Set-Cookie", cookie} = get_cookie(response)
 
     headers =
-      [{"Cookie", cookie}, {"Referer", sign_in_url}, {"Origin", url},
+      [{"Cookie", cookie}, {"Referer", sign_in_url}, {"Origin", Helper.url},
       {"User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2724.0 Safari/537.36"}]
 
-    {:ok, response} = HTTPoison.get(url, headers)
+    {:ok, response} = HTTPoison.get(Helper.url, headers)
     capture_tokens(response)
   end
 

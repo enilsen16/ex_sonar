@@ -1,4 +1,6 @@
-defmodule Customer do
+defmodule ExSonar.Customer do
+  alias ExSonar.Helper.Helper, as: Helper
+  alias ExSonar.Helper.Internal, as: Internal
   use HTTPoison.Base
 
   @url Helper.url(:customer)
@@ -18,7 +20,7 @@ defmodule Customer do
 
   def all_customers(email, password) do
     internal_api = Helper.url <> "/api/customers?customer_type=all"
-    {{"Set-Cookie", cookie }, auth_token} = Helper.sign_in(email, password)
+    {{"Set-Cookie", cookie }, auth_token} = Internal.sign_in(email, password)
 
     headers =
       [{"Cookie", cookie}, {"Referer", Helper.url},

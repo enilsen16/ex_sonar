@@ -1,4 +1,5 @@
-defmodule Messages do
+defmodule ExSonar.Messages do
+  alias ExSonar.Helper.Helper, as: Helper
   use HTTPoison.Base
 
   @url Helper.url(:messages)

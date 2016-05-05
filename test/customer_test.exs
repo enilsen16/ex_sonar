@@ -1,4 +1,6 @@
 defmodule CustomerTest do
+  alias ExSonar.Customer, as: Customer
+  alias ExSonar.Helper.Helper, as: Helper
   use ExUnit.Case, async: false
 
   setup_all do

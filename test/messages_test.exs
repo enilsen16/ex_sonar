@@ -1,4 +1,5 @@
 defmodule MessagesTest do
+  alias ExSonar.Messages, as: Messages
   use ExUnit.Case, async: false
 
   setup_all do
