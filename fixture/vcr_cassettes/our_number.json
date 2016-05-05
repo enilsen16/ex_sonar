@@ -1,0 +1,32 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "X-Publishable-Key": "910f62e3-dc80-40f4-a541-36770daedabc"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://sandbox.sendsonar.com/api/v1/phone_numbers/available"
+    },
+    "response": {
+      "body": "{\"available_number\":\"6188470781\"}",
+      "headers": {
+        "Server": "Cowboy",
+        "Date": "Thu, 05 May 2016 03:19:45 GMT",
+        "Connection": "keep-alive",
+        "Content-Type": "application/json",
+        "Etag": "W/\"a95af893c448b0742932e95a6f931920\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "e93fd4ae-2638-4799-8f18-a3ed055eedd6",
+        "X-Runtime": "0.022006",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Content-Length": "33",
+        "Via": "1.1 vegur"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

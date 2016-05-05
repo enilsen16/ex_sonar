@@ -1,5 +1,6 @@
 defmodule MessagesTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
   setup_all do
     HTTPoison.start
@@ -7,9 +8,10 @@ defmodule MessagesTest do
   end
 
   test "send a message", context do
-    text = "Testy"
-    response = Messages.send(context[:token], context[:to], text)
-    assert {:ok, response_body} = response
-    assert response_body.status_code == 200
+    use_cassette "valid_sent_message" do
+      response = Messages.send(context[:token], context[:to], "Testy")
+      assert {:ok, response_body} = response
+      assert response_body.status_code == 200
+    end
   end
 end

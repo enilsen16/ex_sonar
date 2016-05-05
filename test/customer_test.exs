@@ -1,5 +1,6 @@
 defmodule CustomerTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: false
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
   setup_all do
     HTTPoison.start
@@ -7,18 +8,22 @@ defmodule CustomerTest do
   end
 
   test "valid phone number and token", context do
-    response = Customer.get_customer(context[:customer_number], context[:token] )
-    assert {:ok, body} = response
-    assert body.status_code == 200
+    use_cassette "return customer" do
+      response = Customer.get_customer(context[:customer_number], context[:token] )
+      assert {:ok, body} = response
+      assert body.status_code == 200
+    end
   end
 
   test "return a list of valid numbers", context do
-    response = Customer.available_numbers(context[:public_key])
-    assert {:ok, response_body} = response
-    assert response_body.status_code == 200
-    {:ok, body} = response_body.body
-    |> Helper.decode
-    assert body["available_number"] == "6188470781"
+    use_cassette "our number" do
+      response = Customer.available_numbers(context[:public_key])
+      assert {:ok, response_body} = response
+      assert response_body.status_code == 200
+      {:ok, body} = response_body.body
+      |> Helper.decode
+      assert body["available_number"] == "6188470781"
+    end
   end
 
   # test "return a list of all customers" do

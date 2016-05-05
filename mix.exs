@@ -9,6 +9,9 @@ defmodule Sonar.Mixfile do
      start_permanent: Mix.env == :prod,
      description: description,
      package: package,
+     preferred_cli_env: [
+        vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
+      ],
      deps: deps]
   end
 
@@ -30,6 +33,7 @@ defmodule Sonar.Mixfile do
   # Type "mix help deps" for more examples and options
   def deps do
     [
+      {:exvcr, "~> 0.7", only: :test},
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 2.1"},
       {:floki, "~> 0.8"}
