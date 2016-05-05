@@ -3,7 +3,7 @@ defmodule Sonar.Mixfile do
 
   def project do
     [app: :ex_sonar,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -33,7 +33,7 @@ defmodule Sonar.Mixfile do
   # Type "mix help deps" for more examples and options
   def deps do
     [
-      # {:exvcr, "~> 0.7", only: :test}, TODO: Readd dependency when more stable
+      # {:exvcr, "~> 0.7", only: :test}, TODO: re-add dependency when more stable
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 2.1"},
       {:floki, "~> 0.8"}
@@ -42,7 +42,7 @@ defmodule Sonar.Mixfile do
 
   defp description do
     """
-    A Sonar API interface for Elixir
+    A Send Sonar API interface for Elixir
     """
   end
 
