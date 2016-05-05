@@ -21,6 +21,6 @@ defmodule CustomerTest do
   end
 
   test "return a list of all customers" do
-    Customer.all_customers
+    assert {:ok, _} = Customer.all_customers("enilsen16@icloud.com", "HiSunny12")
   end
 end
