@@ -8,13 +8,13 @@ Sonar documentation here -- http://docs.sendsonar.com/
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+This package can be installed as:
 
   1. Add `send_sonar_api` to your list of dependencies in `mix.exs`:
 
     ```elixir
     def deps do
-      [{:send_sonar_api, "~> 0.0.1"}]
+      [{:send_sonar_api, "~> 0.0.2"}]
     end
     ```
 
