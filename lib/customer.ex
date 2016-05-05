@@ -12,7 +12,11 @@ defmodule Customer do
   end
 
   def available_numbers(token) do
-    url = Helper.url <> "phone_numbers/available"
+    url = Helper.api_url <> "phone_numbers/available"
     HTTPoison.get(url, [{"X-Publishable-Key", token}], [])
+  end
+
+  def all_customers do
+    true
   end
 end
