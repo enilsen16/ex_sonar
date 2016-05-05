@@ -54,34 +54,36 @@ defmodule Helper do
     get_cookie(response)
   end
 
-  def sign_in_params(auth_token, email, password) do
+  defp sign_in_params(auth_token, email, password) do
     [auth_token, email, password] =
       Enum.map [auth_token, email, password], &URI.encode_www_form(&1)
     "utf8=%E2%9C%93&authenticity_token=#{auth_token}&user%5Bemail%5D=#{email}&user%5Bpassword%5D=#{password}&commit=Log+in&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1"
   end
 
-  def capture_tokens do
+  defp capture_tokens do
     {:ok, response} = HTTPoison.get(url <> "users/sign_in")
     {get_cookie(response), get_authenticity_token(response)}
   end
 
-  def get_cookie(response) do
-    case Map.has_key?(response, :headers) do
-      true ->
-        headers = response.headers
-      false ->
-       %HTTPoison.AsyncResponse{id: {:maybe_redirect, 302, headers, _}} = response
-    end
+  defp get_cookie(response) do
+    headers =
+      case Map.has_key?(response, :headers) do
+        true ->
+          response.headers
+        false ->
+         %HTTPoison.AsyncResponse{id: {:maybe_redirect, 302, response_headers, _}} = response
+         response_headers
+      end
 
     Enum.filter headers, fn(header) ->
       case header do
-        {"Set-Cookie", "_texthub_session" <> x } -> true
+        {"Set-Cookie", "_texthub_session" <> _ } -> true
         _ -> false
       end
     end
   end
 
-  def get_authenticity_token(response) do
+  defp get_authenticity_token(response) do
     response.body
     |> Floki.find("head meta[name=csrf-token]")
     |> Floki.attribute("content")
