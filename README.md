@@ -1,7 +1,7 @@
 # Sonar
 
 [![Build Status](https://travis-ci.org/enilsen16/ex_sonar.svg?branch=master)](https://travis-ci.org/enilsen16/ex_sonar)
-
+[![Hex](https://img.shields.io/hexpm/v/ex_sonar.svg)](https://hex.pm/packages/ex_sonar)
 A Sonar Interface for Elixir
 
 Sonar documentation here -- http://docs.sendsonar.com/
