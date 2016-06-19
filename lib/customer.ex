@@ -4,7 +4,13 @@ defmodule ExSonar.Customer do
   use HTTPoison.Base
 
   @url Helper.url(:customer)
+  @moduledoc """
+    Customer related info
+  """
 
+  @doc ~S"""
+    Get a specific customer
+  """
   def get_customer(phone_number, token) do
     tokened_url =
       @url <>
@@ -13,11 +19,17 @@ defmodule ExSonar.Customer do
     HTTPoison.get(tokened_url)
   end
 
+  @doc ~S"""
+   Return a list of phone numbers avialable to you
+  """
   def available_numbers(token) do
     url = Helper.api_url <> "phone_numbers/available"
     HTTPoison.get(url, [{"X-Publishable-Key", token}], [])
   end
 
+  @doc """
+    Return a list of all customers
+  """
   def all_customers(email, password) do
     internal_api = Helper.url <> "/api/customers?customer_type=all"
     {{"Set-Cookie", cookie }, auth_token} = Internal.sign_in(email, password)

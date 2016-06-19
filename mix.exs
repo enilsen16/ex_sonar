@@ -38,7 +38,8 @@ defmodule Sonar.Mixfile do
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 2.1"},
       {:floki, "~> 0.8"},
-      {:ex_doc, "~> 0.11", only: :docs}
+      {:ex_doc, "~> 0.11", only: :docs},
+      {:earmark, "~> 0.1", only: :docs}
     ]
   end
 
