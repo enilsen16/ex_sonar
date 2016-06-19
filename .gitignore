@@ -2,10 +2,15 @@
 
 ### Elixir ###
 /_build
-/cover
 /deps
 erl_crash.dump
 *.ez
+.envrc
+.iex.exs
+/doc
+/mnesia
+/log
+/test/tmp
 
 
 ### OSX ###

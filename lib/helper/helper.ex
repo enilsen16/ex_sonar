@@ -1,5 +1,6 @@
 defmodule ExSonar.Helper.Helper do
   @env if Mix.env != :prod, do: :staging, else: :live
+  @moduledoc false
 
   def url(:customer) do
     case @env do

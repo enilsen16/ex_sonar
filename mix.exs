@@ -7,6 +7,7 @@ defmodule Sonar.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     docs: docs(),
      description: description(),
      package: package(),
      preferred_cli_env: [
@@ -36,8 +37,20 @@ defmodule Sonar.Mixfile do
       # {:exvcr, "~> 0.7", only: :test}, TODO: re-add dependency when more stable
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 2.1"},
-      {:floki, "~> 0.8"}
+      {:floki, "~> 0.8"},
+      {:ex_doc, "~> 0.11", only: :docs}
     ]
+  end
+
+  defp docs do
+    [
+      extras: docs_extras(),
+      main: "readme"
+    ]
+  end
+
+  defp docs_extras do
+    ["README.md"]
   end
 
   defp description do
@@ -48,9 +61,14 @@ defmodule Sonar.Mixfile do
 
   defp package do
     [
-    name: :ex_sonar,
-    maintainers: ["Erik Nilsen"],
-    licenses: ["MIT"],
-    links: %{"GitHub" => "https://github.com/enilsen16/ex_sonar"}]
+      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"]
+      name: :ex_sonar,
+      maintainers: ["Erik Nilsen"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/enilsen16/ex_sonar",
+        "Docs" => "https://hexdocs.pm/ex_sonar"
+      }
+    ]
   end
 end

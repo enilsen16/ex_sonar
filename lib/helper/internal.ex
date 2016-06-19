@@ -1,8 +1,6 @@
 defmodule ExSonar.Helper.Internal do
   alias ExSonar.Helper.Helper, as: Helper
-  @moduledoc """
-    Helper functions to access Sonar's Internal API
-  """
+  @moduledoc false
 
   def sign_in(email, password) do
     sign_in_url = Helper.url <> "users/sign_in"
