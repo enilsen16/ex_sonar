@@ -13,7 +13,7 @@ This package can be installed as:
 
     ```elixir
     def deps do
-      [{:ex_sonar, "~> 0.0.2"}]
+      [{:ex_sonar, "~> 0.1.0"}]
     end
     ```
 
@@ -27,7 +27,6 @@ This package can be installed as:
 
 ## TODO
 
-- [ ] Webhooks
 - [X] Messages support
   - [ ] Facebook messenger
 - [ ] Add Documentation

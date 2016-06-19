@@ -3,16 +3,16 @@ defmodule Sonar.Mixfile do
 
   def project do
     [app: :ex_sonar,
-     version: "0.0.4",
+     version: "0.1.0",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     description: description,
-     package: package,
+     description: description(),
+     package: package(),
      preferred_cli_env: [
         vcr: :test, "vcr.delete": :test, "vcr.check": :test, "vcr.show": :test
       ],
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
