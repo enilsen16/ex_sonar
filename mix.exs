@@ -61,7 +61,7 @@ defmodule Sonar.Mixfile do
 
   defp package do
     [
-      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"]
+      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
       name: :ex_sonar,
       maintainers: ["Erik Nilsen"],
       licenses: ["MIT"],
