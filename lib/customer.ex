@@ -16,7 +16,7 @@ defmodule ExSonar.Customer do
       @url <>
       "?token=#{token}" <>
       "&phone_number=#{phone_number}"
-    HTTPoison.get(tokened_url)
+    HTTPoison.get!(tokened_url)
   end
 
   @doc ~S"""
@@ -24,7 +24,7 @@ defmodule ExSonar.Customer do
   """
   def available_numbers(token) do
     url = Helper.api_url <> "phone_numbers/available"
-    HTTPoison.get(url, [{"X-Publishable-Key", token}], [])
+    HTTPoison.get!(url, [{"X-Publishable-Key", token}], [])
   end
 
   @doc """
@@ -38,7 +38,17 @@ defmodule ExSonar.Customer do
       [{"Cookie", cookie}, {"Referer", Helper.url},
       {"User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2724.0 Safari/537.36"}, {"X-CSRF-Token", auth_token}, {"X-Requested-With", "XMLHttpRequest"} ]
 
-    {:ok, %HTTPoison.Response{body: response}} = HTTPoison.get(internal_api, headers)
+    %HTTPoison.Response{body: response} = HTTPoison.get!(internal_api, headers)
     Helper.decode(response)
+  end
+
+  @doc """
+  Add or update a user
+  """
+  def build(params, xtoken) do
+    {:ok, data} = params |> Poison.encode
+    headers = [{"X-Token", xtoken}, {"Content-Type", "application/json"}]
+    response = HTTPoison.post!(@url, data, headers)
+    if response.status_code <= 300, do: true, else: false
   end
 end

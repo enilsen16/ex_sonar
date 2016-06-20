@@ -9,13 +9,13 @@ defmodule CustomerTest do
 
   test "valid phone number and token", context do
     response = Customer.get_customer(context[:customer_number], context[:token] )
-    assert {:ok, body} = response
+    assert body = response
     assert body.status_code == 200
   end
 
   test "return a list of valid numbers", context do
     response = Customer.available_numbers(context[:public_key])
-    assert {:ok, response_body} = response
+    assert response_body = response
     assert response_body.status_code == 200
     {:ok, body} = response_body.body
     |> Helper.decode
@@ -24,5 +24,9 @@ defmodule CustomerTest do
 
   test "return a list of all customers" do
     assert {:ok, _} = Customer.all_customers("enilsen16@icloud.com", "HiSunny12")
+  end
+
+  test "add a customer", context do
+    assert Customer.build(%{phone_number: context[:customer_number]}, context[:token])
   end
 end

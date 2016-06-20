@@ -29,5 +29,5 @@ This package can be installed as:
 
 - [X] Messages support
   - [ ] Facebook messenger
-- [ ] Add Documentation
+- [X] Add Documentation
 - [ ] Handle Error Cases
