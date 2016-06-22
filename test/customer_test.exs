@@ -9,15 +9,15 @@ defmodule CustomerTest do
 
   test "valid phone number and token", context do
     response = Customer.get_customer(context[:customer_number], context[:token] )
-    assert body = response
-    assert body.status_code == 200
+    assert response
+    assert response.status_code == 200
   end
 
   test "return a list of valid numbers", context do
     response = Customer.available_numbers(context[:public_key])
-    assert response_body = response
-    assert response_body.status_code == 200
-    {:ok, body} = response_body.body
+    assert response
+    assert response.status_code == 200
+    {:ok, body} = response.body
     |> Helper.decode
     assert body["available_number"] == "6188470781"
   end
