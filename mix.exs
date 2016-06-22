@@ -3,7 +3,7 @@ defmodule Sonar.Mixfile do
 
   def project do
     [app: :ex_sonar,
-     version: "0.1.2",
+     version: "0.1.3",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -36,7 +36,7 @@ defmodule Sonar.Mixfile do
     [
       # {:exvcr, "~> 0.7", only: :test}, TODO: re-add dependency when more stable
       {:httpoison, "~> 0.8.0"},
-      {:poison, "~> 2.1"},
+      {:poison, "~> 2.2"},
       {:floki, "~> 0.8"},
       {:ex_doc, "~> 0.11", only: :docs},
       {:earmark, "~> 0.1", only: :docs}
