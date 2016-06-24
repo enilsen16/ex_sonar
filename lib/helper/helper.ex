@@ -1,5 +1,6 @@
 defmodule ExSonar.Helper.Helper do
-  @env if Mix.env != :prod, do: :staging, else: :live
+  #Get the applications current enviroment
+  @env if Application.get_env(:ex_sonar, :environment_name) != :prod, do: :staging, else: :live
   @moduledoc false
 
   def url(:customer) do
