@@ -24,6 +24,11 @@ This package can be installed as:
       [applications: [:ex_sonar]]
     end
     ```
+  3. Add this line to your config if you'd like to change the mix environments for the dependency:
+
+  ```elixir
+  config :ex_sonar, environment_name: Mix.env
+  ```
 
 ## TODO
 
