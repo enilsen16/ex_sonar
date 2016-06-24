@@ -42,4 +42,8 @@ defmodule ExSonar.Helper.Helper do
   def decode(input) do
     Poison.decode(input)
   end
+
+  def config_opts do
+    Application.get_env(:ex_sonar, Sonar)
+  end
 end
