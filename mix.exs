@@ -34,7 +34,6 @@ defmodule Sonar.Mixfile do
   # Type "mix help deps" for more examples and options
   def deps do
     [
-      # {:exvcr, "~> 0.7", only: :test}, TODO: re-add dependency when more stable
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 2.2"},
       {:floki, "~> 0.8"},
