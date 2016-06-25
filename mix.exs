@@ -3,7 +3,7 @@ defmodule Sonar.Mixfile do
 
   def project do
     [app: :ex_sonar,
-     version: "0.1.3",
+     version: "1.0.0",
      elixir: "~> 1.2",
      docs: docs(),
      description: description(),
