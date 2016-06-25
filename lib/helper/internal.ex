@@ -1,12 +1,13 @@
 defmodule ExSonar.Helper.Internal do
   alias ExSonar.Helper.Helper, as: Helper
   @moduledoc false
+  @opts Helper.config_opts
 
-  def sign_in(email, password) do
+  def sign_in() do
     sign_in_url = Helper.url <> "users/sign_in"
     {:ok, response} = HTTPoison.get(sign_in_url)
     {{"Set-Cookie", cookie}, auth_token} = capture_tokens(response)
-    data = sign_in_params(auth_token, email, password)
+    data = sign_in_params(auth_token)
     headers =
       [{"Cookie", cookie}, {"Referer", sign_in_url}, {"Origin", Helper.url},
       {"User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2724.0 Safari/537.36"},
@@ -23,9 +24,9 @@ defmodule ExSonar.Helper.Internal do
     capture_tokens(response)
   end
 
-  defp sign_in_params(auth_token, email, password) do
+  defp sign_in_params(auth_token) do
     [auth_token, email, password] =
-      Enum.map [auth_token, email, password], &URI.encode_www_form(&1)
+      Enum.map [auth_token, @opts[:email], @opts[:password]], &URI.encode_www_form(&1)
     "utf8=%E2%9C%93&authenticity_token=#{auth_token}&user%5Bemail%5D=#{email}&user%5Bpassword%5D=#{password}&commit=Log+in&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1"
   end
 

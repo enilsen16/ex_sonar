@@ -24,6 +24,29 @@ This package can be installed as:
       [applications: [:ex_sonar]]
     end
     ```
+  3. OPTIONAL: Add this line to your config if you'd like to change the dev and test mix environments for the dependency:
+
+  ```elixir
+  # log-in info from sandbox.sendsonar.com
+  config :ex_sonar, Sonar,
+    environment_name: Mix.env, # optional
+    xtoken: YOUR_PRIVATE_KEY,
+    public_key: YOUR_PUBLIC_KEY,
+    email: YOUR_EMAIL,
+    password: YOUR_PASSWORD
+  ```
+
+  4. REQUIRED: You will need these config options for production though:
+
+  ```elixir
+  # log-in info from sendsonar.com
+  # /config/prod.exs
+  config :ex_sonar, Sonar,
+    xtoken: YOUR_PRIVATE_KEY,
+    public_key: YOUR_PUBLIC_KEY,
+    email: YOUR_EMAIL,
+    password: YOUR_PASSWORD
+  ```
 
 ## TODO
 
