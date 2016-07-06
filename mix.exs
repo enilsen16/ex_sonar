@@ -32,7 +32,7 @@ defmodule Sonar.Mixfile do
   # Type "mix help deps" for more examples and options
   def deps do
     [
-      {:httpoison, "~> 0.8.0"},
+      {:httpoison, "~> 0.8"},
       {:poison, "~> 2.2"},
       {:floki, "~> 0.8"},
       {:ex_doc, "~> 0.11", only: :docs},
@@ -59,7 +59,7 @@ defmodule Sonar.Mixfile do
 
   defp package do
     [
-      files: ["lib", "priv", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      files: ["lib", "mix.exs", "README*"],
       name: :ex_sonar,
       maintainers: ["Erik Nilsen"],
       licenses: ["MIT"],
