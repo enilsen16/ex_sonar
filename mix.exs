@@ -36,7 +36,7 @@ defmodule Sonar.Mixfile do
       {:poison, "~> 2.2"},
       {:floki, "~> 0.8"},
       {:ex_doc, "~> 0.11", only: :docs},
-      {:earmark, "~> 0.1", only: :docs}
+      {:earmark, "~> 1.0", only: :docs, override: true}
     ]
   end
 
