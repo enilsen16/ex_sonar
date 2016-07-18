@@ -2,14 +2,11 @@ defmodule ExSonar.Messages do
   alias ExSonar.Helper.Helper, as: Helper
 
   @moduledoc """
-  Send a message
+  Send messages
   """
   @url Helper.url(:messages)
   @opts Helper.config_opts
 
-  @doc """
-    Send a SMS message
-  """
   def send_sms(to_number, message, media) do
     {:ok, body} =
       %{to: to_number, text: message, media_url: media}

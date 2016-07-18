@@ -8,9 +8,6 @@ defmodule ExSonar.Customer do
     Customer related info
   """
 
-  @doc ~S"""
-    Get a specific customer
-  """
   def get_customer(phone_number) do
     tokened_url =
       @url <>
@@ -19,17 +16,11 @@ defmodule ExSonar.Customer do
     HTTPoison.get!(tokened_url)
   end
 
-  @doc ~S"""
-   Return a list of phone numbers avialable to you
-  """
   def available_numbers() do
     url = Helper.api_url <> "phone_numbers/available"
     HTTPoison.get!(url, [{"X-Publishable-Key", @opts[:public_key]}], [])
   end
 
-  @doc """
-    Return a list of all customers
-  """
   def all_customers() do
     internal_api = Helper.url <> "/api/customers?customer_type=all"
     {{"Set-Cookie", cookie }, auth_token} = Internal.sign_in()
@@ -42,9 +33,6 @@ defmodule ExSonar.Customer do
     Helper.decode(response)
   end
 
-  @doc """
-  Add or update a user
-  """
   def build(params) do
     {:ok, data} = params |> Poison.encode
     headers = [{"X-Token", @opts[:xtoken]}, {"Content-Type", "application/json"}]
