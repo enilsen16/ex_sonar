@@ -13,7 +13,7 @@ This package can be installed as:
 
     ```elixir
     def deps do
-      [{:ex_sonar, "~> 0.1.0"}]
+      [{:ex_sonar, "~> 2.0"}]
     end
     ```
 
