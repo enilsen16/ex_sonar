@@ -1,5 +1,4 @@
 defmodule MessagesTest do
-  alias ExSonar.Messages, as: Messages
   use ExUnit.Case, async: false
 
   setup_all do
@@ -7,7 +6,7 @@ defmodule MessagesTest do
   end
 
   test "send a message", context do
-    response = Messages.send(context[:to], "Testy")
+    response = ExSonar.send(context[:to], "Testy")
     assert {:ok, response_body} = response
     assert response_body.status_code == 200
   end

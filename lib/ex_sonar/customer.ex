@@ -1,7 +1,6 @@
 defmodule ExSonar.Customer do
   alias ExSonar.Helper.Helper, as: Helper
   alias ExSonar.Helper.Internal, as: Internal
-  use HTTPoison.Base
 
   @url Helper.url(:customer)
   @opts Helper.config_opts

@@ -1,6 +1,5 @@
 defmodule ExSonar.Messages do
   alias ExSonar.Helper.Helper, as: Helper
-  use HTTPoison.Base
 
   @moduledoc """
   Send a message
@@ -11,7 +10,7 @@ defmodule ExSonar.Messages do
   @doc """
     Send a SMS message
   """
-  def send(to_number, message, media \\ "") do
+  def send_sms(to_number, message, media) do
     {:ok, body} =
       %{to: to_number, text: message, media_url: media}
       |> Enum.filter(fn {_k, v} -> v != "" end)

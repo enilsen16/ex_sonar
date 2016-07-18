@@ -2,7 +2,7 @@ defmodule HelperTest do
   alias ExSonar.Helper.Internal, as: Internal
   use ExUnit.Case
 
-  test "valid sign_in", context do
+  test "valid sign_in", _context do
     {{"Set-Cookie", "_texthub_session=" <> x }, string} = Internal.sign_in()
     assert String.ends_with? x, "HttpOnly"
     assert String.ends_with? string, "=="
