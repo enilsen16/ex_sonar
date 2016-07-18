@@ -53,7 +53,7 @@ defmodule Sonar.Mixfile do
 
   defp description do
     """
-    A Send Sonar API interface for Elixir
+    A @sendsonar API interface for Elixir
     """
   end
 
