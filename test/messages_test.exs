@@ -9,6 +9,6 @@ defmodule MessagesTest do
   test "send a message", context do
     response = Messages.send(context[:token], context[:to], "Testy")
     assert {:ok, response_body} = response
-    assert response_body.status_code == 200
+    assert response_body.status_code <= 300
   end
 end
